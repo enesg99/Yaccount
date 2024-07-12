@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rechnungen</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/bills.css">
+</head>
+<body>
+    <nav class="navbar navbar-inverse visible-xs">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
+                <a class="navbar-brand" href="#">Yakup Festsaal</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="/users/dashboard">Dashboard</a></li>
+                    <li><a href="/users/customers">Kunden</a></li>
+                    <li class="active"><a href="/users/bills">Rechnungen</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-sm-3 sidenav hidden-xs">
+                <h2>Yakup Festsaal</h2>
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="/users/dashboard">Dashboard</a></li>
+                    <li><a href="/users/customers">Kunden</a></li>
+                    <li class="active"><a href="/users/bills">Rechnungen</a></li>
+                </ul>
+                <br>
+            </div>
+            <br>
+
+            <div class="col-sm-9">
+                <div class="well">
+                    <h4>Dashboard</h4>
+                    <p>Willkommen!</p>
+                    <button onclick="createPDF()">Rechnung erstellen</button>
+                </div>
+                <div id="addValueContainer">
+                    <button id="closeBtn" onclick="closeValueContainer()">X</button>
+                    <div class="valueInputContainer">
+                        <label for="leistung">Leistung:</label>
+                        <input type="text" name="leistung" id="leistung">
+                    </div>
+                    <div class="valueInputContainer">
+                        <label for="ust">USt.:</label>
+                        <input type="number" name="ust" id="ust">
+                    </div>
+                    <div class="valueInputContainer">
+                        <label for="einzelpreis">Einzelpreis</label>
+                        <input type="number" name="einzelpreis" id="einzelpreis">
+                    </div>
+                    <div class="valueInputContainer">
+                        <label for="einheit">Einheit</label>
+                        <select name="einheit" id="einheit">
+                            <option value="">Stück</option>
+                            <option value="">Stunden</option>
+                        </select>
+                    </div>
+                    <div class="valueInputContainer">
+                        <label for="anzahl">Anzahl</label>
+                        <input type="number" name="anzahl" id="anzahl">
+                    </div><br>
+                    <button onclick="rechnungValue()" style="height: 40px; border-radius: 10px;">Hinzufügen</button>
+                </div>  
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="well">
+                            <select name="customer" id="customer" style="font-size: 2rem;" onchange="testKunden()">
+                                <option value="">Wähle einen Kunden aus</option>
+                            </select>
+                            <a  href="/users/customers"
+                                style="color: black;
+                                    text-decoration: none;
+                                    border: black 1px solid;
+                                    border-radius: 5px;
+                                    padding: 5px 10px;
+                                    background-color: white;">
+                                    Kunde hinzufügen
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="well">
+                            <div class="buttoncontainer">
+                                <button onclick="getNewValue()">Hinzufügen</button>
+                            </div>
+                            <table>
+                                <tr>
+                                    <th>Position</th>
+                                    <th>Leistung</th>
+                                    <th>USt. %</th>
+                                    <th>Einzelpreis</th>
+                                    <th>Anzahl</th>
+                                    <th>Gesamtpreis</th>
+                                </tr> 
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/bills.js"></script>
+    <script src="/static/pdf.js"></script>
+</body>
+</html>

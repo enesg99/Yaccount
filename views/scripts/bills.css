@@ -1,0 +1,53 @@
+.row.content {height: 550px}
+        
+.sidenav {
+    background-color: #f1f1f1;
+    height: 100%;
+}
+    
+@media screen and (max-width: 767px) {
+    .row.content {height: auto;} 
+}
+
+.well {
+    min-height: 100px;
+}
+
+table {
+    width: 100%;
+    margin: 10px 0;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+#addValueContainer {
+    background-color: white;
+    color: black;
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    right: 50px;
+    bottom: 50px;
+    padding: 20px 40px;
+    display: none;
+    z-index: 1000;
+    border-radius: 20px;
+}
+
+#closeBtn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.valueInputContainer {
+    margin: 5px 10px;
+}
+
+.valueInputContainer input[type=number] {
+    width: 50px;
+}

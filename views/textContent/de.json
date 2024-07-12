@@ -1,0 +1,11 @@
+{
+    "index": {
+        "welcomeHeader": "Herzlich Willkommen :)",
+        "whatWeDo": "Du kannst dich hier registrieren, Kunden speichern und Rechnungen für sie erstellen.",
+        "tutorial": {
+            "first": "Erst klickst du auf regisitrieren und erstellst dir einen Account.",
+            "second": "Dann wirst du zur Anmeldeseite weitergeleitet, da gibst du dein Email und dein Passwort ein.",
+            "third": "Du bist dann auf deinem Dashboard, da kannst du an der Seite auf 'Kunden' und 'Rechnungen' klicken."
+        }
+    }
+}

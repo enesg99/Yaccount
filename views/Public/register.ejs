@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" integrity="sha512-5fsy+3xG8N/1PV5MIJz9ZsWpkltijBI48gBzQ/Z2eVATePGHOkMIn+xTDHIfTZFVb9GMpflF2wOWItqxAP2oLQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Registrieren</title>
+</head>
+<body>
+
+    <h1>Register</h1>
+
+    <ul>
+        <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
+        <li><%= error.message %></li>
+        <% }) %> <% } %>
+    </ul>
+
+    <form action="/users/register" method="POST">
+        <div>
+            <input type="text" id="name" name="name" placeholder="Name"  >
+        </div>
+        <div>
+            <input type="text" id="prename" name="prename" placeholder="Vorname"  >
+        </div>
+        <div>
+            <input type="email" id="email" name="email" placeholder="Email"  >
+        </div>
+        <div>
+            <input type="password" id="password" name="password" placeholder="Password"  >
+        </div>
+        <div>
+            <input type="password" id="password2" name="password2" placeholder="Confirm password"  >
+        </div>
+        <div>
+            <input type="text" name="adress" id="adress" placeholder="Adresse"  >
+        </div>
+        <div>
+            <input type="text" name="plz" id="plz" placeholder="Postleizahl"  >
+        </div>
+        <div>
+            <input type="text" name="town" id="town" placeholder="Stadt" >
+        </div>
+        <div>
+            <input type="submit" value="Register">
+        </div>
+        <a href="/users/login">Already registered?</a>
+    </form>
+
+</body>
+</html>
